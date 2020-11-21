@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public Animator[] hands;
+    public Text text;
+
+    [HideInInspector]
+
+    private GameObject ecto;
 
     private int index = 0;
-    private bool isPlaying;
+    private bool isPlaying, canCollectSample;
 
     // Start is called before the first frame update
     void Start()
@@ -28,12 +34,41 @@ public class PlayerController : MonoBehaviour
             hands[index].SetTrigger("Raise");
             
         }
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
+        if (!isPlaying && Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
         {
             hands[index].SetTrigger("Lower");
             isPlaying = true;
+            
         }
 
-        
+        if (canCollectSample && Input.GetKeyDown(KeyCode.E))
+        {
+            if (hands[index].name == "HandBeaker")
+            {
+                Destroy(ecto);
+                text.enabled = false;
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Ectoplasm")
+        {
+            text.text = "Press [e] to collect sample with flask";
+            text.enabled = true;
+            canCollectSample = true;
+            ecto = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Ectoplasm")
+        {
+            text.enabled = false;
+            canCollectSample = false;
+            ecto = null;
+        }
     }
 }
