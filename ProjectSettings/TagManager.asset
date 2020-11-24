@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ectoplasm
+  - Fire
+  - ColdSpot
   layers:
   - Default
   - TransparentFX
