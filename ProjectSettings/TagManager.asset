@@ -8,6 +8,9 @@ TagManager:
   - Fire
   - ColdSpot
   - IntroTrigger
+  - ExitTrigger
+  - Demon
+  - Spawner
   layers:
   - Default
   - TransparentFX

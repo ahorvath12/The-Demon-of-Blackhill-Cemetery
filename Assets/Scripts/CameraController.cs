@@ -47,6 +47,7 @@ public class CameraController : MonoBehaviour
 
     IEnumerator FreezeCam()
     {
+        GetComponent<AudioSource>().Play();
         cam.clearFlags = CameraClearFlags.Nothing;
         cam.cullingMask = 0;
         yield return new WaitForSeconds(2);

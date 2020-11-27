@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColdSpotManager : MonoBehaviour
 {
-    public bool hasChecked;
+    public bool hasChecked, heardSpirit;
     public GameObject demon;
 
     // Start is called before the first frame update
