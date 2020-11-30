@@ -27,11 +27,11 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (cam.enabled)
-                cam.enabled = false;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (cam.enabled)
+        //        cam.enabled = false;
+        //}
         if (Input.GetMouseButtonDown(0) && cam.enabled)
         {
             StartCoroutine(FreezeCam());
@@ -43,6 +43,12 @@ public class CameraController : MonoBehaviour
     {
         if (gameObject.name == "HandCamera")
             cam.enabled = true;
+    }
+
+    public void TurnOff()
+    {
+        if (gameObject.name == "HandCamera")
+            cam.enabled = false;
     }
 
     IEnumerator FreezeCam()

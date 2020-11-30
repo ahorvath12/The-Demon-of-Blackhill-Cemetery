@@ -63,6 +63,9 @@ public class DemonController : MonoBehaviour
             audioSelf.clip = growls[Random.Range(0, growls.Length)];
             audioSelf.Play();
         }
+
+        
+        
     }
 
     
@@ -76,5 +79,11 @@ public class DemonController : MonoBehaviour
             audioSelf.Stop();
             play = false;
         }
+    }
+
+    public void Hide()
+    {
+        mesh1.GetComponent<Renderer>().enabled = false;
+        mesh2.GetComponent<Renderer>().enabled = false;
     }
 }

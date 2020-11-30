@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
         {
             foreach(Renderer rend in demonMeshes)
             {
-                if (rend.isVisible)
+                if (rend.isVisible && Vector3.Distance(transform.position, rend.gameObject.transform.position) < 20)
                 {
                     demonMeshes[0].gameObject.transform.parent.gameObject.GetComponent<Animator>().SetTrigger("Fade");
                     demonMeshes[0].gameObject.transform.parent.gameObject.GetComponent<AudioSource>().Stop();
@@ -333,7 +333,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator EvidenceRecorded()
     {
         evidenceText.enabled = true;
-        journal.GetComponent<AudioSource>().Play();
+        //journal.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(3);
         evidenceText.enabled = false;
     }
