@@ -96,6 +96,8 @@ public class PlayerController : MonoBehaviour
         if (evidenceSpirit >= 3 && evidenceEcto >= 3 && evidencePhoto >= 3)
         {
             //activate demon
+            foreach (Renderer rend in demonMeshes)
+                rend.gameObject.transform.parent.gameObject.GetComponent<Animator>().SetTrigger("Fade");
             StartCoroutine(StartChase());
         }
 
@@ -183,8 +185,9 @@ public class PlayerController : MonoBehaviour
             {
                 if (rend.isVisible && Vector3.Distance(transform.position, rend.gameObject.transform.position) < 20)
                 {
-                    demonMeshes[0].gameObject.transform.parent.gameObject.GetComponent<Animator>().SetTrigger("Fade");
-                    demonMeshes[0].gameObject.transform.parent.gameObject.GetComponent<AudioSource>().Stop();
+                    rend.gameObject.transform.parent.gameObject.GetComponent<Animator>().SetTrigger("Fade");
+                    //demonMeshes[0].gameObject.transform.parent.gameObject.GetComponent<Animator>().SetTrigger("Fade");
+                    rend.gameObject.transform.parent.gameObject.GetComponent<DemonController>().pictureTaken = true;
                     //demonMeshes[1].gameObject.transform.parent.gameObject.GetComponent<Animator>().SetTrigger("Fade");
                     photoText.text += "I";
                     StartCoroutine(EvidenceRecorded());
@@ -253,6 +256,10 @@ public class PlayerController : MonoBehaviour
             //GetComponent<FirstPersonController>().enabled = false;
             fadePanel.GetComponent<Animator>().SetTrigger("FadeOut");
             escaped = true;
+            foreach (GameObject demon in demonAttackers)
+            {
+                demon.SetActive(false);
+            }
             StartCoroutine(EndGame("Escaped"));
         }
         else if (other.gameObject.tag == "Demon")

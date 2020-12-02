@@ -8,6 +8,7 @@ public class DemonController : MonoBehaviour
 {
     public GameObject mesh1, mesh2;
     public bool walk, crouch;
+    [HideInInspector] public bool pictureTaken = false;
 
     public AudioClip screamClip;
     public string screamLine;
@@ -22,6 +23,7 @@ public class DemonController : MonoBehaviour
 
     private AudioSource audioSelf;
     private bool play = true;
+
 
 
     // Start is called before the first frame update
@@ -81,9 +83,26 @@ public class DemonController : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (!pictureTaken && other.gameObject.tag == "Player")
+        {
+            Debug.Log("Player exit");
+            GetComponent<Animator>().SetTrigger("FadeIn");
+            audioSelf.Play();
+            play = true;
+        }
+    }
+
     public void Hide()
     {
         mesh1.GetComponent<Renderer>().enabled = false;
         mesh2.GetComponent<Renderer>().enabled = false;
+    }
+
+    public void ShowMesh()
+    {
+        mesh1.GetComponent<Renderer>().enabled = true;
+        mesh2.GetComponent<Renderer>().enabled = true;
     }
 }
