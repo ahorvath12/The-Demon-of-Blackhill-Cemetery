@@ -45,9 +45,9 @@ public class PlayerController : MonoBehaviour
     private int ectoIndex=0, coldIndex=0, boxIndex=0;
     private int demonIndex;
 
-    private bool escaped = false;
+    private bool escaped = false, death = false;
 
-    private bool raise = false, seenDemon = false;
+    private bool raise = false, seenDemon = false, spawn = false;
 
     private GameObject currentColdSpot;
 
@@ -243,13 +243,14 @@ public class PlayerController : MonoBehaviour
             audioSource.Play();
             StartCoroutine(ShowInstructions());
         }
-        else if (other.gameObject.tag == "Spawner")
+        else if (other.gameObject.tag == "Spawner" && !spawn && demonIndex < demonAttackers.Length-1)
         {
             demonAttackers[demonIndex].SetActive(false);
             demonIndex++;
             demonAttackers[demonIndex].SetActive(true);
+            spawn = true;
         }
-        else if (other.gameObject.tag == "ExitTrigger" && !escaped)
+        else if (other.gameObject.tag == "ExitTrigger" && !escaped && !death)
         {
             StartCoroutine(dialogueEscaped.PlayDialogue(text, audioSource));
             audioSource.Play();
@@ -262,12 +263,13 @@ public class PlayerController : MonoBehaviour
             }
             StartCoroutine(EndGame("Escaped"));
         }
-        else if (other.gameObject.tag == "Demon")
+        else if (other.gameObject.tag == "Demon" && !escaped && !death)
         {
             blackScreen.enabled = true;
             StartCoroutine(dialogueDeath.PlayDialogue(text, audioSource));
             audioSource.Play();
             StartCoroutine(EndGame("Death"));
+            death = true;
         }
     }
 
@@ -291,6 +293,8 @@ public class PlayerController : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+        else if (other.gameObject.tag == "Spawner" && spawn)
+            spawn = false;
     }
 
 

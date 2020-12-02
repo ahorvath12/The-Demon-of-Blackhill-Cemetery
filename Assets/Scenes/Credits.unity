@@ -1166,7 +1166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -140, y: -29.8}
+  m_AnchoredPosition: {x: -140, y: -44.3}
   m_SizeDelta: {x: 234.31, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &983753540
@@ -1191,7 +1191,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4844192588d6596449c3dfbeffc0cf25, type: 3}
-    m_FontSize: 25
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1213,7 +1213,12 @@ MonoBehaviour:
 
 
     Audio
-    Editing'
+    Editing
+
+
+
+
+    QA Testing'
 --- !u!222 &983753541
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1360,7 +1365,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4844192588d6596449c3dfbeffc0cf25, type: 3}
-    m_FontSize: 25
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1382,7 +1387,10 @@ MonoBehaviour:
 
 
     Spencer
-    Felix & Andrea Horvath'
+    Felix, Andrea Horvath, & Niko Baumbach
+
+
+    Niko Baumbach'
 --- !u!222 &1207346371
 CanvasRenderer:
   m_ObjectHideFlags: 0
