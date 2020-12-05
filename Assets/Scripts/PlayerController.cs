@@ -101,8 +101,10 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(StartChase());
         }
 
+        Debug.Log("isPlaying " + isPlaying);
+
         //swap hands
-        if (isPlaying && !hands[index].GetCurrentAnimatorStateInfo(0).IsName("Raise"))
+        if (isPlaying && !hands[index].gameObject.GetComponent<SwitchHands>().active)
         {
             isPlaying = false;
             index++;
@@ -112,7 +114,7 @@ public class PlayerController : MonoBehaviour
             hands[index].SetTrigger("Raise");
 
         }
-        if (!isPlaying && Input.GetKeyDown(KeyCode.Space))
+        if (!isPlaying && Input.GetKeyDown(KeyCode.Space) && hands[index].gameObject.GetComponent<SwitchHands>().active)
         {
             hands[index].SetTrigger("Lower");
             isPlaying = true;
