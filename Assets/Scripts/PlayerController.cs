@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
 
     private GameObject currentColdSpot;
 
+    public string state = "raised";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,34 +106,51 @@ public class PlayerController : MonoBehaviour
         Debug.Log("isPlaying " + isPlaying);
 
         //swap hands
-        if (isPlaying && !hands[index].gameObject.GetComponent<SwitchHands>().active)
-        {
-            isPlaying = false;
-            index++;
-            if (index >= hands.Length)
-                index = 0;
-
-            hands[index].SetTrigger("Raise");
-
-        }
-        if (!isPlaying && Input.GetKeyDown(KeyCode.Space) && hands[index].gameObject.GetComponent<SwitchHands>().active)
-        {
-            hands[index].SetTrigger("Lower");
-            isPlaying = true;
-
-        }
-        else if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             //show/hide journal
             raise = !raise;
             journal.SetBool("Raise", raise);
 
             if (raise)
+            {
                 hands[index].SetTrigger("Lower");
+            }
             else
+            {
                 hands[index].SetTrigger("Raise");
+                isPlaying = false;
+            }
+        }
+        else if (isPlaying&& !raise && !hands[index].gameObject.GetComponent<SwitchHands>().active)
+        {
+            isPlaying = false;
+            index++;
+            if (index >= hands.Length)
+                index = 0;
+
+            hands[index].ResetTrigger("Lower");
+            hands[index].SetTrigger("Raise");
 
         }
+        else if (!isPlaying && Input.GetKeyDown(KeyCode.Space) && hands[index].gameObject.GetComponent<SwitchHands>().active)
+        {
+            hands[index].ResetTrigger("Raise");
+            hands[index].SetTrigger("Lower");
+            isPlaying = true;
+        }
+        //else if (Input.GetKeyDown(KeyCode.Tab))
+        //{
+        //    //show/hide journal
+        //    raise = !raise;
+        //    journal.SetBool("Raise", raise);
+
+        //    if (raise)
+        //        hands[index].SetTrigger("Lower");
+        //    else
+        //        hands[index].SetTrigger("Raise");
+
+        //}
 
         //collect ectoplasm sample
         if (canCollectSample && Input.GetMouseButtonDown(0))
@@ -202,6 +221,7 @@ public class PlayerController : MonoBehaviour
         
     }
     
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -305,7 +325,6 @@ public class PlayerController : MonoBehaviour
     private void PlaySpiritBox(bool coldSpot)
     {
         int chance = Random.Range(0, 101);
-        Debug.Log(chance);
         if (coldSpot && chance <= 3)
         {
             if (!currentColdSpot.GetComponent<ColdSpotManager>().heardSpirit)
@@ -356,4 +375,5 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(6);
         SceneManager.LoadScene(scene);
     }
+    
 }
