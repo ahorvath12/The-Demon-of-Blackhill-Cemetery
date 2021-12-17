@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.09056149, g: 0.0949923, b: 0.11027097, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 139387badaa75754c86481dbc0219dcd,
+    type: 2}
   m_LightingSettings: {fileID: 2034187317}
 --- !u!196 &4
 NavMeshSettings:
@@ -2072,6 +2073,16 @@ PrefabInstance:
     - target: {fileID: 4601949074729462, guid: 40c06be01585152488f86004bd05e54b, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.3178319
+      objectReference: {fileID: 0}
+    - target: {fileID: 108460866645000316, guid: 40c06be01585152488f86004bd05e54b,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108460866645000316, guid: 40c06be01585152488f86004bd05e54b,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 199491725835410202, guid: 40c06be01585152488f86004bd05e54b,
         type: 3}
@@ -5590,6 +5601,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.3178319
       objectReference: {fileID: 0}
+    - target: {fileID: 108460866645000316, guid: 40c06be01585152488f86004bd05e54b,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108460866645000316, guid: 40c06be01585152488f86004bd05e54b,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 199491725835410202, guid: 40c06be01585152488f86004bd05e54b,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -6692,6 +6713,16 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 108234479589137292, guid: e7b753ad391f2fc4c831aa9c412995fd,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108234479589137292, guid: e7b753ad391f2fc4c831aa9c412995fd,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 199751756943812526, guid: e7b753ad391f2fc4c831aa9c412995fd,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -7355,6 +7386,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7477177
       objectReference: {fileID: 0}
+    - target: {fileID: 108460866645000316, guid: 40c06be01585152488f86004bd05e54b,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108460866645000316, guid: 40c06be01585152488f86004bd05e54b,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 199491725835410202, guid: 40c06be01585152488f86004bd05e54b,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -7610,6 +7651,16 @@ PrefabInstance:
     - target: {fileID: 108234479589137292, guid: e7b753ad391f2fc4c831aa9c412995fd,
         type: 3}
       propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108234479589137292, guid: e7b753ad391f2fc4c831aa9c412995fd,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108234479589137292, guid: e7b753ad391f2fc4c831aa9c412995fd,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 199751756943812526, guid: e7b753ad391f2fc4c831aa9c412995fd,
@@ -8114,6 +8165,7 @@ MonoBehaviour:
   mesh2: {fileID: 1113668303}
   walk: 1
   crouch: 0
+  pictureTaken: 0
   screamClip: {fileID: 0}
   screamLine: 
   audioSource: {fileID: 0}
@@ -13582,6 +13634,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.7852677
       objectReference: {fileID: 0}
+    - target: {fileID: 108460866645000316, guid: 40c06be01585152488f86004bd05e54b,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108460866645000316, guid: 40c06be01585152488f86004bd05e54b,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 199491725835410202, guid: 40c06be01585152488f86004bd05e54b,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -14696,6 +14758,16 @@ PrefabInstance:
     - target: {fileID: 4601949074729462, guid: 40c06be01585152488f86004bd05e54b, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.7477177
+      objectReference: {fileID: 0}
+    - target: {fileID: 108460866645000316, guid: 40c06be01585152488f86004bd05e54b,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108460866645000316, guid: 40c06be01585152488f86004bd05e54b,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 199491725835410202, guid: 40c06be01585152488f86004bd05e54b,
         type: 3}
@@ -16494,6 +16566,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.6661775
       objectReference: {fileID: 0}
+    - target: {fileID: 108460866645000316, guid: 40c06be01585152488f86004bd05e54b,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108460866645000316, guid: 40c06be01585152488f86004bd05e54b,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 199491725835410202, guid: 40c06be01585152488f86004bd05e54b,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -16656,13 +16738,13 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.22
+  m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -16799,7 +16881,7 @@ LightingSettings:
   m_IndirectOutputScale: 1
   m_UsingShadowmask: 1
   m_BakeBackend: 1
-  m_LightmapMaxSize: 1024
+  m_LightmapMaxSize: 2048
   m_BakeResolution: 40
   m_Padding: 2
   m_TextureCompression: 1
@@ -16811,7 +16893,7 @@ LightingSettings:
   m_MixedBakeMode: 2
   m_LightmapsBakeMode: 1
   m_FilterMode: 1
-  m_LightmapParameters: {fileID: 0}
+  m_LightmapParameters: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
   m_ExportTrainingData: 0
   m_TrainingDataDestination: TrainingData
   m_RealtimeResolution: 2
